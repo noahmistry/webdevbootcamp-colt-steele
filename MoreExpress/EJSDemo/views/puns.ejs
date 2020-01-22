@@ -1,0 +1,17 @@
+<!-- include header template -->
+<% include partials/header %>
+<h1>
+	You are musically challenged in: <%= guitar.toUpperCase() %>  
+	<!-- EJS Brackets notation for rendering HTML & JS on front-end  -->
+</h1>
+
+<% if (guitar.toLowerCase() === "guitar") { %>
+	<p>You have pro Guitar skillz!</p>
+<% } else { %>
+		<p>
+			You should have stuck to your day job!	
+		</p>
+<% } %>
+
+<!-- include footer template -->
+<% include partials/footer %>

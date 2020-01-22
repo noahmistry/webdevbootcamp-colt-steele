@@ -1,0 +1,35 @@
+<!-- NEW FOR EJS 3.0.1 -->
+<%- include("../partials/header") %>
+
+<div class="container">
+	<div class="jumbotron">
+		<div class="container">
+			<h1>
+			Welcome to YelpCamp!
+			<p>
+				View our hand-picked camprounds from all over the world
+			</p>
+			<a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a>
+		</h1>
+	</div>	
+		</div>
+	
+	<div class="row">
+		<% campgrounds.forEach(function(campground){ %>
+	<div class="col-md-3 col-sm-6">
+		<div class="card">
+  <img src="<%= campground.image %>" class="card-img-top">
+  <div class="card-body">
+	  <p class="card-text text-center"><%= campground.name %></p>
+	  <p class="text-center">
+		  <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+	  </p>
+  </div>
+</div>
+	</div>
+	<% }); %>
+		
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

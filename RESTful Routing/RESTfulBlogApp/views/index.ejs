@@ -1,0 +1,39 @@
+<!-- VERSION 3.01 EJS -->
+<%- include("partials/header") %>
+
+<!-- SEMANTIC UI  -->
+
+<div class="ui container">
+	<div class="ui huge header">
+		RESTful Blog App
+	</div>
+	<div class="ui padded segment link cards">
+		<% blogs.forEach(function(blog){ %>
+		<div class="card">
+			<div class="image">
+				<img src="<%=blog.image%>">
+			</div>
+		</div>
+		<div class="content">
+			<a class="header" href="/blogs/<%=blog._id%>"><%=blog.title%></a>
+			<div class="meta">
+				<span><%= blog.created.toDateString() %></span>
+			</div>
+		</div>
+		<div class="description">
+			<p><%- blog.body.substring(0,100) %>...</p>
+		</div>
+		<div class="extra content">
+			<a class="ui primary button" href="/blogs/<%=blog._id%>"<%=blog.title%>>Read More
+				<i class="right chevron icon"></i>
+			</a>
+		</div>
+		<% }) %>
+	</div>
+			
+	<!-- Truncate body content - The substring() method returns the part of the string between the start and end indexes, or to the end of the string. -->	
+
+
+
+<!-- VERSION 3.01 EJS -->
+<%- include("partials/footer") %>

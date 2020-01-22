@@ -1,0 +1,45 @@
+<!-- include header template -->
+<% include partials/header %>
+
+<!-- USING STYLE SHEETS INLINE  -->
+<!-- <style>
+	body {
+		color: blue;
+	}
+</style> -->
+
+<h1>
+	The Posts Page
+</h1>
+
+<!-- LOOPS LOGIC  -->
+<!-- FOR LOOP  -->
+<% for(var i = 0; i < posts.length; i++) { %>
+<li> 
+	<%= posts[i].title %> - <strong><%= posts[i].author %></strong> 
+</li>								
+<% } %>
+
+<br>
+
+<!-- FOREACH MORE COMMON FOR LOOPING THROUGH ARRAYS  -->
+<% posts.forEach(function(post){ %>
+	<li> 
+		<%= post.title %> - <strong><%= post.author %></strong> 
+	</li>
+<% }) %>
+
+<!-- include footer template -->
+<% include partials/footer %>
+
+
+
+
+
+<!-- EJS Bracket Notation  -->
+
+<!-- <%= %> -->
+<!-- equals sign (=) will render all HTML and JS logic and show on the webpage including JS LOGIC -->
+
+<!-- <% %>  -->
+<!-- without the equals sign is strictly used for JS Logic (IF statements etc.) They will not output the display of the logic in HTML but rather just execute the logic in the brackets  -->

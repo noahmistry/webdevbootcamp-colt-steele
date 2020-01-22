@@ -1,0 +1,36 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container segment">
+<!-- 	 -->
+	<div class="ui huge header"><%= blog.title %></div>
+	<div class="ui top attached ">
+		<div class="item">
+			<div class="image">
+				<img class="ui centered rounded image" src="<%= blog.image %>">
+			</div>
+			<div class="content">
+	<!-- Convert a date to a string - The toDateString() method returns the date portion of a Date object in English in the following format separated by spaces:
+First three letters of the week day name
+First three letters of the month name
+Two digit day of the month, padded on the left a zero if necessary
+Four digit year (at least), padded on the left with zeros if necessary
+E.g. "Thu Jan 01 1970". 				 -->
+				<span><%= blog.created.toDateString() %></span>
+			</div>
+			<div class="description">
+				<p><%- blog.body %></p>
+			</div>
+			<div class="ui buttons">
+				<a class="ui inverted green button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+			<form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+				<button class="ui inverted red button">
+					Delete
+				</button>
+			</form>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<%- include("partials/footer") %>
