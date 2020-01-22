@@ -1,0 +1,20 @@
+# ignore all logs
+*.log
+# ignore vscode
+*.vscode
+# ignore mongodDB
+*.wt
+# ignore journal
+*journal
+# ignore diagnostic_data
+*.data
+# ignore .lock
+*.lock
+# ignore bson
+*.bson
+# ignore wired tiger turtle
+*.turtle
+# ignore wired tiger
+*WiredTiger
+
+
