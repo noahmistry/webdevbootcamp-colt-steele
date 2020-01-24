@@ -16,5 +16,11 @@
 *.turtle
 # ignore wired tiger
 *WiredTiger
+# node_modules
+*YelpCamp/v8/*node_modules
+# node_modules
+*YelpCamp/v7/*node_modules
+# node_modules
+*YelpCamp/v6/*node_modules
 
 

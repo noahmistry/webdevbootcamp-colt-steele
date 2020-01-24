@@ -3,6 +3,8 @@ var express 	= require("express"),
 	router		= express.Router();
 	passport	= require("passport");
 	User		= require("../models/user");
+	Campground  = require("../models/campground");
+	Comment  	= require("../models/comment");
 
 // INDEX RESTFUL ROUTE - LANDING PAGE //
 // V7 - CHANGED APP ROUTE TO EXPRESS ROUTER & APPENDED / in app.js to DRY Code //
@@ -21,7 +23,7 @@ router.get("/register",function(req,res){
 
 // SIGN UP LOGIC //
 // V7 - CHANGED APP ROUTE TO EXPRESS ROUTER & APPENDED / in app.js to DRY Code //
-router.post("/register",function(req,res){
+router.post("/register", function(req,res){
 	var newUser = new User({username: req.body.username});
 	// CREATE AND REGISTER USER TO DB //
 	User.register(newUser, req.body.password, function(err,user){
@@ -35,9 +37,6 @@ router.post("/register",function(req,res){
 		});
 	});
 });
-
-module.exports = router;
-
 
 //  LOGIN FORM //
 // V7 - CHANGED APP ROUTE TO EXPRESS ROUTER & APPENDED / in app.js to DRY Code //

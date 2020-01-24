@@ -19,7 +19,7 @@ router.get("/",function(req,res){
 
 // CREATE RESTful Route - Add new campground to DB //
 // V7 - CHANGED APP ROUTE TO ROUTER //
-router.post("/",function(req,res){
+router.post("/", isLoggedIn, function (req,res){
 	
 	// get data from form and add to campground array
 	var name = req.body.newCampgroundName;
@@ -32,7 +32,7 @@ router.post("/",function(req,res){
 			console.log(err);
 		} else {
 		// redirect back to campgrounds page
-		res.redirect("/campgrounds");		
+		res.redirect("/campgrounds");
 		}
 	});
 	
@@ -40,8 +40,8 @@ router.post("/",function(req,res){
 
 // NEW RESTful ROUTE - show form to create a new campground //
 // V7 - CHANGED APP ROUTE TO ROUTER //
-router.get("/new",function(req,res){
-	res.render("/new");
+router.get("/new", isLoggedIn, function(req,res){
+	res.render("campgrounds/new");
 });
 
 //  SHOW RESTful ROUTE - shows more info about one campground //
@@ -60,6 +60,13 @@ router.get("/:id",function(req,res){
 	}); 
 });
 
+//middleware
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 
 module.exports = router;
