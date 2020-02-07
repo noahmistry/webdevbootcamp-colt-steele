@@ -2,25 +2,10 @@
 *.log
 # ignore vscode
 *.vscode
-# ignore mongodDB
-*.wt
-# ignore journal
-*journal
-# ignore diagnostic_data
-*.data
-# ignore .lock
-*.lock
-# ignore bson
-*.bson
-# ignore wired tiger turtle
-*.turtle
-# ignore wired tiger
-*WiredTiger
 # node_modules
-*YelpCamp/v8/*node_modules
-# node_modules
-*YelpCamp/v7/*node_modules
-# node_modules
-*YelpCamp/v6/*node_modules
+*node_modules
+#environment variables
+*.env
+
 
 
