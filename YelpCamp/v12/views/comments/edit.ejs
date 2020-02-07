@@ -1,0 +1,41 @@
+<!-- NEW FOR EJS 3.0.1 -->
+<%- include("../partials/header") %>
+
+<div class="container">
+	<h1 style="text-align:center";>Edit Comment</h1>
+<div  style="width:40%; margin: 30px auto";>
+    <!-- Based on RESTFUL Edit route  -->
+    <!-- /campgrounds/campground:id/comments/comment:id/edit -->
+    <!-- We don't need all the objects from campground, just the id. We create a campground_id and pass it through our template in comments.js -->
+	<form action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+  <div class="form-group">
+	  <div class="form-row">
+		    <input type="text" name="comment[text]" class="form-control" value="<%= comment.text %>" >
+	  </div>
+  </div>
+		
+<!-- We no longer need to have this option since we associated the comments schema to the Object_Id in the comments model  -->
+		<!-- <div class="form-group">
+	  <div class="form-row">
+	    <input type="text" name="comment[author]" class="form-control" placeholder="author">  
+	  </div>
+  </div> -->
+		
+	<div class="form-group">
+	  <button type="submit" class="btn btn-primary btn-block">Edit</button>
+	</div>
+</form>
+	<a href="/campgrounds">Go back</a>	
+</div>
+</div>
+
+<!-- NEW FOR EJS 3.0.1 -->
+<%- include("../partials/footer") %>
+
+<!-- 
+===============
+COMMENTS
+===============
+-->
+
+<!-- By using name="comment[text]" we can put group our 'comments' into an array and call just the comment array to retrieve all values inside the array (i.e text,image,author... etc) -->

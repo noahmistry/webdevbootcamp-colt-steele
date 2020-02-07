@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- BS 4.1.1	 -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="/stylesheets/landing.css">
+	<!-- Modernizr test and detects and tells us what HTML, CSS and JavaScript features the user’s browser has to offer  -->
+	<!-- We use async to load in sync with all the components on the page -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
+	<title>YelpCamp</title>
+</head>
+<body>
+	<div class="container">
+	<!-- We use error.length because even though error empty it is not undefined. It is still an empty array and it will result in true -->
+	<% if (error && error.length > 0) { %>
+		<div class="alert alert-danger" role="alert">
+			<!-- View error message from res.locals -->
+			<%= error %> 
+		</div>	
+	<% } %>   
+		
+	<% if (success && success.length > 0) { %>
+		<div class="alert alert-success" role="alert">
+			<!-- View success message from res.locals -->
+			<%= success %> 
+		</div>
+	<% } %>
+	</div>
+
+	<div id="landing-header">
+		<h1>Welcome to YelpCamp!</h1>
+		<a href="/campgrounds" class="btn btn-large btn-success">
+			View all campgrounds
+		</a>
+	</div>
+	
+	<ul class="slideshow">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	
+</body>
+</html>
+
+<%- include ('partials/footer') %> 
